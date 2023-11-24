@@ -1,0 +1,7 @@
+node_modules
+.history
+yarn-debug.log*
+yarn-error.log*
+
+
+docs/.vitepress/cache/**

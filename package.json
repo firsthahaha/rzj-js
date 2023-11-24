@@ -1,0 +1,65 @@
+{
+  "name": "warbler-js",
+  "version": "1.2.6",
+  "description": "A JavaScript utility library , JavaScript 实用工具库",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "vite",
+    "clean": "rimraf node_modules",
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "commit:all": "git add . && git-cz",
+    "dev": "vitepress dev docs --port 5273",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "release:major": "release-it --increment major",
+    "release:minor": "release-it --increment minor",
+    "release:patch": "release-it --increment patch",
+    "release": "release-it --release-as 1.2.0"
+  },
+  "keywords": [
+    "JavaScript",
+    "utils",
+    "warbler-js",
+    "warbler-fe"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanhzw/warbler-js"
+  },
+  "homepage": "http://www.warblerfe.top/warbler/js",
+  "author": "warbler",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^17.4.4",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.5.0",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "release-it": "^16.1.5",
+    "rimraf": "^4.4.1",
+    "vite": "^4.4.9",
+    "vitepress": "^1.0.0-alpha.76"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": [
+      "eslint --fix"
+    ]
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
+}

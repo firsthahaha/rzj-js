@@ -1,0 +1,21 @@
+{
+  "git": {
+    "commitMessage": "📦 版本: v${version}",
+    "push": true,
+    "commit": true,
+    "tag": true,
+    "requireCommits": false,
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "draft": false
+  },
+  "npm": {
+    "publish": false,
+    "ignoreVersion": false
+  },
+  "hooks": {
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+  }
+}
