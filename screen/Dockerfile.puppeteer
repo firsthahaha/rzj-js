@@ -1,0 +1,19 @@
+RUN echo "======================= start install n + pm2 ========================" && \
+  # npm install -g n --registry=http://registry.m.jd.com --unsafe-perm=true --allow-root && \
+  # n 16.16.0 && \
+  export PATH=/usr/local/n/versions/node/16.16.0/bin:$PATH && \
+  npm install pm2@latest -g --registry=http://registry.m.jd.com --unsafe-perm=true --allow-root && \
+  echo 'export PATH=/usr/local/n/versions/node/16.16.0/bin:$PATH' >> /etc/profile && \
+  rm -rf /opt/node-v8.2.1-linux-x64
+
+ENV PATH /usr/local/n/versions/node/16.16.0/bin:$PATH
+
+
+RUN echo "======================= start install puppeteer ========================" && \
+  pwd && \
+  mkdir -p /home/export/App/puppeteer/puppeteerCache && \
+  cd /home/export/App/puppeteer && \
+  wget https://storage.360buyimg.com/wht/overseas/screenshots/chrome-linux-1133702.zip && \
+  npm install puppeteer@21.0.3 --puppeteer_cache_dir=/home/export/App/puppeteer/puppeteerCache --unsafe-perm=true --allow-root
+
+ENTRYPOINT echo "puppeteer installed"

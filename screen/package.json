@@ -1,0 +1,50 @@
+{
+  "name": "screenshot-service",
+  "version": "1.0.0",
+  "main": "./server/server.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon ./server/server.js -w",
+    "prod": "cross-env NODE_ENV=production node ./server/server.js",
+    "start:dev": "pm2 start ecosystem.config.js --env dev && pm2 save",
+    "start:prod": "pm2 start ecosystem.config.js --env prod && pm2 save",
+    "stop": "pm2 stop ecosystem.config.js",
+    "restart": "pm2 restart ecosystem.config.js",
+    "reload": "pm2 reload ecosystem.config.js",
+    "delete": "pm2 delete ecosystem.config.js && pm2 save",
+    "monit": "pm2 monit",
+    "clearLog": "node ./tools/clearLogs.js",
+    "logrotate": "pm2 conf pm2-logrotate",
+    "pm2": "pm2"
+  },
+  "author": "wp",
+  "license": "ISC",
+  "description": "screenshot service",
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules",
+      "dist",
+      "bin",
+      "logs",
+      "output"
+    ],
+    "env": {
+      "NODE_ENV": "development"
+    }
+  },
+  "dependencies": {
+    "@jd/jmfe-node-jss": "^1.2.14",
+    "aws-sdk": "^2.1422.0",
+    "axios": "^1.4.0",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.9",
+    "express": "4.18.2",
+    "generic-pool": "^3.9.0",
+    "image-size": "^1.0.2",
+    "jspdf": "^2.5.1",
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "puppeteer": "^21.0.3"
+  }
+}
